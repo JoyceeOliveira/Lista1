@@ -18,32 +18,32 @@ int compare (const void * a, const void * b) // funcao comparar receve dois pont
  }
 
 int main(void){
-    int i,n; // declarando vari·veis da alocaÁ„o de vetores
+    int i,n; // declarando vari√°veis da aloca√ß√£o de vetores
     float *x;
 
-    printf("Digite aqui o valor que desejas para n:"); // InteraÁ„o com usu·rio para descobrir o tamano do vetor desejado
+    printf("Digite aqui o valor que desejas para n:"); // Intera√ß√£o com usu√°rio para descobrir o tamano do vetor desejado
     scanf("%d", &n);
 
     x = (float*)malloc(n * sizeof(float)); //alocando vetor
 
-    for (i = 0; i < n; i++) { //Processo de inserÁ„o dos valores que desejam ser alocados
+    for (i = 0; i < n; i++) { //Processo de inser√ß√£o dos valores que desejam ser alocados
         printf("Digite o valor de numero %d\n",i+1);
         scanf("%f", &x[i]);
     }
 
 
-    for (i = 0; i < n; i++) {  // Impress„o na tela do vetor em seu estado original
+    for (i = 0; i < n; i++) {  // Impress√£o na tela do vetor em seu estado original
         printf("[%.1f] ",x[i]);
     }
 
-    printf("\n");// apenas para estÈtica de apresentaÁ„o
+    printf("\n");// apenas para est√©tica de apresenta√ß√£o
 
     qsort ( x, n, sizeof(float), compare); // chamando a funcao qsort
     for (i=0; i<n; i++){
         printf ("[%.1f] ", x[i]);
     }
 
-    free(x); // liberando memoÛria
+    free(x); // liberando memo√≥ria
 
     return 0;
 
