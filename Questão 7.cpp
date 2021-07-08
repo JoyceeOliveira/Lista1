@@ -1,4 +1,5 @@
-/*7. Assumindo que pulo[] È um vetor do tipo int, quais das seguintes expressıes referenciam o
+/*7. Assumindo que pulo[] √© um vetor do tipo int, quais das seguintes express√µes referenciam o
 valor do terceiro elemento do vetor?
 
 Resp: *(pulo +2);
+*/
