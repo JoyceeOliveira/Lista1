@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-    int i,j ; //vairáveis da alocação de vetores
+    int i,j ; //vairÃ¡veis da alocaÃ§Ã£o de vetores
     float *x, n, aux ;
 
     printf("Digite aqui o valor que desejas para n:");
