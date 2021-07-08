@@ -7,7 +7,7 @@ int main(){
     printf("Digite aqui o valor que desejas para n:");
     scanf("%f", &n);
 
-    x = malloc(n * sizeof(float)); //alocando vetor
+    x = (float*)malloc(n * sizeof(float)); //alocando vetor
     
 
     for (i = 0; i < n; i++) {
