@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+
+void multMat(float **matA, float **matB, float **matC, int nla, int ncalb, int ncb){
+
+int soma = 0;
+
+for (int i = 0; i < nla; i++){
+    for (int j = 0; j < ncb; j++){
+        for (int k = 0; k < ncalb; k++){
+            soma = soma + matA[i][k] * matB [k][j];    
+        }
+        matC[i][j] = soma;
+        soma = 0;
+    }
+}
+
+};
+
+int main()
+{
+
+int nla, ncalb, ncb, i, j, min = -10, max = 20; 
+float **matA, **matB, **matC; 
+
+
+printf("Digite a quantidade de linhas da matriz A: ");
+scanf("%d", &nla);
+
+printf ("Digite a quantidade de colunas da matriz A e linhas da matriz B: ");
+scanf("%d", &ncalb);
+
+printf ("Digite a quantidade de colunas da matriz B: ");
+scanf ("%d", &ncb);
+
+matA = (float**)malloc(nla * sizeof(float*));
+matA[0] = (float*)malloc(nla * ncalb * sizeof(float));
+for(i = 1; i < nla; i++){
+   matA[i] = matA[i - 1] + ncalb;
+}
+
+srand(time(NULL));
+for (i = 0; i < nla; i++){
+    for ( j = 0; j < ncalb; j++){
+        matA[i][j] = rand() % max + min;
+    }
+}
+
+matB = (float**)malloc(ncalb * sizeof(float*));
+matB[0] = (float*)malloc(ncalb * ncb * sizeof(float));
+for(i = 1; i < ncalb; i++){
+   matB[i] = matB[i - 1] + ncb;
+}
+
+for (i = 0; i < ncalb; i++){
+    for (j = 0; j < ncb; j++){
+        matB[i][j] = rand() % max + min;
+    }
+}
+
+matC = (float**)malloc(nla * sizeof(float*));
+matC[0] = (float*)malloc(nla * ncb * sizeof(float));
+for(int i=1; i < nla; i++){
+   matC[i] = matC[i - 1] + ncb;
+}
+
+multMat (matA, matB, matC, nla, ncalb, ncb);
+
+printf ("A matriz A e': \n");
+
+for (i = 0; i < nla; i++){
+    for (j = 0; j < ncalb; j++){
+        printf("%f ", matA[i][j]); 
+}
+printf("\n");
+}
+
+printf ("\n");
+printf ("A matriz B e': \n");
+
+for (i = 0; i < ncalb; i++){
+    for (j = 0; j < ncb; j++){
+        printf("%f ", matB[i][j]); 
+}
+printf("\n");
+}
+
+printf ("\n");
+printf ("A matriz C e': \n");
+
+for (i = 0; i < nla; i++){
+    for (j = 0; j < ncb; j++){
+        printf("%f ", matC[i][j]); 
+}
+printf("\n");
+}
+
+
+free(matA[0]);
+free(matA);
+
+free(matB[0]);
+free(matB);
+
+free (matC[0]);
+free (matC);
+
+
+
+    return(0);
+
+}
